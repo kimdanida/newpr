@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김여울 | Frontend Developer & UI/UX Designer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Creative Frontend Developer with passion for modern web technologies and user experience design">
+    <meta name="keywords" content="Frontend Developer, React, JavaScript, UI/UX, Web Developer, Portfolio">
+    <meta name="author" content="김개발">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="김개발 | Frontend Developer & UI/UX Designer">
+    <meta property="og:description" content="Creative Frontend Developer with passion for modern web technologies">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kimdev.portfolio.com">
+    <meta property="og:image" content="https://kimdev.portfolio.com/assets/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="logo">
+                    <span class="logo-text">김여울</span>
+                    <span class="logo-dot">.</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-section="home">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">소개</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-section="skills">기술</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link" data-section="portfolio">포트폴리오</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link" data-section="experience">경력</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">연락</a>
+                </li>
+            </ul>
+            
+            <div class="nav-extras">
+                <button class="theme-toggle" id="themeToggle" aria-label="테마 변경">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        안녕하세요, 저는 
+                        <span class="hero-name">김여울</span>입니다
+                    </h1>
+                    <div class="hero-subtitle">
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        사용자 경험을 중시하는 프론트엔드 개발자로서, 
+                        <strong>아름답고 직관적인 웹 인터페이스</strong>를 만드는 것이 저의 열정입니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="btn btn-primary">
+                            포트폴리오 보기
+                            <span class="btn-icon">→</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            연락하기
+                            <span class="btn-icon">📧</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <img src="assets/img.jpg" alt="김여울 프로필 사진" loading="lazy">
+                            <div class="profile-glow"></div>
+                        </div>
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">구직 중</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span>스크롤</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Effects -->
+        <div class="hero-bg">
+            <div class="particle" style="--delay: 0s; --duration: 20s;"></div>
+            <div class="particle" style="--delay: 2s; --duration: 18s;"></div>
+            <div class="particle" style="--delay: 4s; --duration: 22s;"></div>
+            <div class="particle" style="--delay: 6s; --duration: 19s;"></div>
+            <div class="particle" style="--delay: 8s; --duration: 21s;"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">저에 대해 알아보세요</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-story">
+                        <h3>나의 개발 여정</h3>
+                        <p>
+                            컴퓨터과학을 전공하며 처음 코딩의 매력에 빠졌습니다. 
+                            단순히 기능이 작동하는 것을 넘어, <strong>사용자가 즐거워하는 인터페이스</strong>를 
+                            만들고 싶다는 열정이 저를 프론트엔드의 길로 이끌었습니다.
+                        </p>
+                        <p>
+                            현재는 <strong>React</strong>와 <strong>TypeScript</strong>를 주력으로 하며, 
+                            최신 웹 기술과 디자인 트렌드를 꾸준히 학습하고 있습니다. 
+                            코드의 품질과 사용자 경험, 두 마리 토끼를 모두 잡는 것이 저의 목표입니다.
+                        </p>
+                    </div>
+                    
+                    <div class="about-values">
+                        <h3>핵심 가치</h3>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value-icon">🎨</div>
+                                <h4>디자인 감각</h4>
+                                <p>아름다운 UI와 직관적인 UX 디자인</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">⚡</div>
+                                <h4>성능 최적화</h4>
+                                <p>빠르고 효율적인 웹 애플리케이션</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">🔧</div>
+                                <h4>클린 코드</h4>
+                                <p>읽기 쉽고 유지보수가 용이한 코드</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">🚀</div>
+                                <h4>지속적 학습</h4>
+                                <p>새로운 기술과 트렌드에 대한 열정</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-fun">
+                        <h3>개인적인 이야기</h3>
+                        <div class="fun-facts">
+                            <div class="fun-fact">
+                                <span class="fact-icon">☕</span>
+                                <span>하루에 아메리카노 3잔은 기본</span>
+                            </div>
+                            <div class="fun-fact">
+                                <span class="fact-icon">🎮</span>
+                                <span>게임 UI/UX 분석하는 취미</span>
+                            </div>
+                            <div class="fun-fact">
+                                <span class="fact-icon">📚</span>
+                                <span>디자인 관련 도서 수집가</span>
+                            </div>
+                            <div class="fun-fact">
+                                <span class="fact-icon">🏃‍♂️</span>
+                                <span>러닝으로 창의적 아이디어 충전</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-label">Tech Stacks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1000">0</div>
+                            <div class="stat-label">Cups of Coffee</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Tech Stack</h2>
+                <p class="section-subtitle">제가 다루는 기술들입니다</p>
+            </div>
+            
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <button class="category-btn active" data-category="all">전체</button>
+                    <button class="category-btn" data-category="frontend">Frontend</button>
+                    <button class="category-btn" data-category="backend">Backend</button>
+                    <button class="category-btn" data-category="tools">Tools</button>
+                    <button class="category-btn" data-category="design">Design</button>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Frontend Skills -->
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/react.svg" alt="React" loading="lazy">
+                        </div>
+                        <h3>React</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="90"></div>
+                            </div>
+                            <span class="level-text">90%</span>
+                        </div>
+                        <p>컴포넌트 기반 개발, Hooks, Context API</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/typescript.svg" alt="TypeScript" loading="lazy">
+                        </div>
+                        <h3>TypeScript</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="85"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                        <p>타입 안정성, 인터페이스, 제네릭</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/javascript.svg" alt="JavaScript" loading="lazy">
+                        </div>
+                        <h3>JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="95"></div>
+                            </div>
+                            <span class="level-text">95%</span>
+                        </div>
+                        <p>ES6+, 비동기 처리, DOM 조작</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="frontend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/css.svg" alt="CSS3" loading="lazy">
+                        </div>
+                        <h3>CSS3</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="90"></div>
+                            </div>
+                            <span class="level-text">90%</span>
+                        </div>
+                        <p>Flexbox, Grid, 애니메이션, 반응형</p>
+                    </div>
+                    
+                    <!-- Backend Skills -->
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/nodejs.svg" alt="Node.js" loading="lazy">
+                        </div>
+                        <h3>Node.js</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="75"></div>
+                            </div>
+                            <span class="level-text">75%</span>
+                        </div>
+                        <p>Express, API 개발, 미들웨어</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="backend">
+                        <div class="skill-icon">
+                            <img src="assets/icons/mongodb.svg" alt="MongoDB" loading="lazy">
+                        </div>
+                        <h3>MongoDB</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="70"></div>
+                            </div>
+                            <span class="level-text">70%</span>
+                        </div>
+                        <p>NoSQL, Mongoose, 데이터 모델링</p>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="skill-card" data-category="tools">
+                        <div class="skill-icon">
+                            <img src="assets/icons/git.svg" alt="Git" loading="lazy">
+                        </div>
+                        <h3>Git</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="85"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                        <p>버전 관리, 브랜치 전략, 협업</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="tools">
+                        <div class="skill-icon">
+                            <img src="assets/icons/webpack.svg" alt="Webpack" loading="lazy">
+                        </div>
+                        <h3>Webpack</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="70"></div>
+                            </div>
+                            <span class="level-text">70%</span>
+                        </div>
+                        <p>모듈 번들링, 최적화, 플러그인</p>
+                    </div>
+                    
+                    <!-- Design Tools -->
+                    <div class="skill-card" data-category="design">
+                        <div class="skill-icon">
+                            <img src="assets/icons/figma.svg" alt="Figma" loading="lazy">
+                        </div>
+                        <h3>Figma</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="80"></div>
+                            </div>
+                            <span class="level-text">80%</span>
+                        </div>
+                        <p>UI 디자인, 프로토타이핑, 컴포넌트</p>
+                    </div>
+                    
+                    <div class="skill-card" data-category="design">
+                        <div class="skill-icon">
+                            <img src="assets/icons/photoshop.svg" alt="Photoshop" loading="lazy">
+                        </div>
+                        <h3>Photoshop</h3>
+                        <div class="skill-level">
+                            <div class="level-bar">
+                                <div class="level-fill" data-level="75"></div>
+                            </div>
+                            <span class="level-text">75%</span>
+                        </div>
+                        <p>이미지 편집, 그래픽 디자인</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">제가 만든 프로젝트들을 소개합니다</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">전체</button>
+                <button class="filter-btn" data-filter="web">웹 앱</button>
+                <button class="filter-btn" data-filter="mobile">모바일</button>
+                <button class="filter-btn" data-filter="ui">UI/UX</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <article class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/projects/ecommerce.jpg" alt="E-Commerce Platform" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <button class="btn-icon" data-action="preview">👁️</button>
+                                <button class="btn-icon" data-action="live">🚀</button>
+                                <button class="btn-icon" data-action="code">💻</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>React와 Node.js로 구축한 완전한 쇼핑몰 플랫폼</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                        <div class="project-stats">
+                            <span>⭐ 4.8/5.0</span>
+                            <span>👥 1.2k users</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="assets/projects/todo-app.jpg" alt="Todo Management App" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <button class="btn-icon" data-action="preview">👁️</button>
+                                <button class="btn-icon" data-action="live">🚀</button>
+                                <button class="btn-icon" data-action="code">💻</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Todo Management App</h3>
+                        <p>React Native로 개발한 크로스 플랫폼 할일 관리 앱</p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Redux</span>
+                        </div>
+                        <div class="project-stats">
+                            <span>📱 iOS/Android</span>
+                            <span>⏱️ Real-time sync</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="ui">
+                    <div class="project-image">
+                        <img src="assets/projects/design-system.jpg" alt="Design System" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <button class="btn-icon" data-action="preview">👁️</button>
+                                <button class="btn-icon" data-action="live">🚀</button>
+                                <button class="btn-icon" data-action="code">💻</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Design System</h3>
+                        <p>일관성 있는 UI를 위한 컴포넌트 라이브러리</p>
+                        <div class="project-tags">
+                            <span class="tag">Storybook</span>
+                            <span class="tag">Styled Components</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                        <div class="project-stats">
+                            <span>🎨 50+ components</span>
+                            <span>📚 Documented</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/projects/dashboard.jpg" alt="Analytics Dashboard" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <button class="btn-icon" data-action="preview">👁️</button>
+                                <button class="btn-icon" data-action="live">🚀</button>
+                                <button class="btn-icon" data-action="code">💻</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>실시간 데이터 시각화를 위한 대시보드</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">D3.js</span>
+                            <span class="tag">WebSocket</span>
+                        </div>
+                        <div class="project-stats">
+                            <span>📊 Real-time</span>
+                            <span>⚡ Fast rendering</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">저의 경력과 성장 과정입니다</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Frontend Developer</h3>
+                            <span class="company">TechCorp Inc.</span>
+                            <span class="period">2022.03 - 현재</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                대규모 웹 애플리케이션의 프론트엔드 아키텍처 설계 및 개발 리드. 
+                                팀의 생산성을 30% 향상시키는 개발 프로세스 개선에 기여.
+                            </p>
+                            <ul class="achievements">
+                                <li>React 기반 마이크로 프론트엔드 아키텍처 구축</li>
+                                <li>코드 리뷰 문화 정착으로 버그 발생률 40% 감소</li>
+                                <li>신입 개발자 4명 멘토링 및 교육</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech">React</span>
+                                <span class="tech">TypeScript</span>
+                                <span class="tech">Next.js</span>
+                                <span class="tech">GraphQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Frontend Developer</h3>
+                            <span class="company">StartupXYZ</span>
+                            <span class="period">2020.06 - 2022.02</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                스타트업 환경에서 제품의 MVP부터 스케일업까지 전 과정에 참여. 
+                                빠른 개발과 높은 품질을 동시에 달성하는 경험을 쌓음.
+                            </p>
+                            <ul class="achievements">
+                                <li>제품 출시 일정을 2주 단축하는 개발 프로세스 구축</li>
+                                <li>PWA 구현으로 모바일 사용자 경험 개선</li>
+                                <li>A/B 테스트를 통한 전환율 15% 개선</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech">Vue.js</span>
+                                <span class="tech">JavaScript</span>
+                                <span class="tech">Sass</span>
+                                <span class="tech">Webpack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Junior Frontend Developer</h3>
+                            <span class="company">WebSolutions</span>
+                            <span class="period">2019.03 - 2020.05</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                첫 직장에서 웹 개발의 기초를 탄탄히 다지고, 
+                                다양한 프로젝트를 통해 실무 경험을 축적.
+                            </p>
+                            <ul class="achievements">
+                                <li>반응형 웹사이트 20+ 프로젝트 참여</li>
+                                <li>크로스 브라우저 호환성 이슈 해결 전담</li>
+                                <li>사내 코딩 컨벤션 가이드 작성</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech">HTML5</span>
+                                <span class="tech">CSS3</span>
+                                <span class="tech">jQuery</span>
+                                <span class="tech">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>컴퓨터과학 학사</h3>
+                            <span class="company">서울대학교</span>
+                            <span class="period">2015.03 - 2019.02</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                컴퓨터과학의 기초 이론을 학습하고, 
+                                다양한 프로그래밍 언어와 개발 방법론을 경험.
+                            </p>
+                            <ul class="achievements">
+                                <li>학부 연구생으로 HCI 연구실 참여</li>
+                                <li>캡스톤 프로젝트 우수상 수상</li>
+                                <li>프로그래밍 동아리 회장 활동</li>
+                            </ul>
+                            <div class="tech-stack">
+                                <span class="tech">C++</span>
+                                <span class="tech">Java</span>
+                                <span class="tech">Python</span>
+                                <span class="tech">Algorithm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">함께 멋진 프로젝트를 만들어요</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>연락처 정보</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <span class="label">이메일</span>
+                                <a href="mailto:kimdev@example.com">kimdev@example.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <span class="label">전화</span>
+                                <a href="tel:+821012345678">010-1234-5678</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <span class="label">위치</span>
+                                <span>서울, 대한민국</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <span class="label">현재 상태</span>
+                                <span class="status available">새로운 기회를 찾고 있습니다</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>소셜 미디어</h3>
+                        <div class="social-grid">
+                            <a href="https://github.com/kimdev" class="social-link" target="_blank">
+                                <div class="social-icon">💻</div>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/kimdev" class="social-link" target="_blank">
+                                <div class="social-icon">💼</div>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://twitter.com/kimdev" class="social-link" target="_blank">
+                                <div class="social-icon">🐦</div>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="https://instagram.com/kimdev" class="social-link" target="_blank">
+                                <div class="social-icon">📷</div>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <!-- 
+                    Formspree 설정:
+                    1. https://formspree.io 에서 계정 생성
+                    2. 새 Form 생성 후 Form ID 복사
+                    3. 아래 YOUR_FORM_ID를 실제 Form ID로 변경
+                    예: https://formspree.io/f/mdkgvpkr
+                    -->
+                    <form id="contactForm" class="form" action="https://formspree.io/f/mdkgvpkr" method="POST">
+                        <h3>메시지 보내기</h3>
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="_replyto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">제목</label>
+                            <input type="text" id="subject" name="_subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">메시지</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <!-- Formspree 스팸 방지 -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="btn btn-primary">
+                            메시지 보내기
+                            <span class="btn-icon">✈️</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 김개발. All rights reserved.</p>
+                    <p>Made with ❤️ and lots of ☕</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">홈</a>
+                    <a href="#about">소개</a>
+                    <a href="#portfolio">포트폴리오</a>
+                    <a href="#contact">연락</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="portfolio.js"></script>
+</body>
+</html> 

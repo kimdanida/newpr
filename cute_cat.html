@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진짜 냐옹이들 🐱</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .cat-container {
+            text-align: center;
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .cat-container:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .cat-container:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .cat-container:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .cat-container:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 280px;
+            height: 320px;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.1),
+                0 15px 25px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            overflow: hidden;
+        }
+
+        .cat-photo {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 
+                0 10px 20px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .cat-container:hover .cat-photo {
+            transform: scale(1.02);
+        }
+
+        .cat-name {
+            color: #2c3e50;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            position: relative;
+        }
+
+        .cat-description {
+            color: #5a6c7d;
+            font-size: 14px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .main-title {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        /* 하트 애니메이션 */
+        .heart {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            animation: heartbeat 2s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 15px;
+            height: 24px;
+            position: absolute;
+            left: 15px;
+            top: 0;
+            background: #e74c3c;
+            border-radius: 15px 15px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* 반짝이 효과 */
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+        }
+
+        .sparkle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 25%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        /* 애니메이션 */
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(1deg); 
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { 
+                transform: scale(1); 
+            }
+            50% { 
+                transform: scale(1.2); 
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+
+        /* 별 배경 */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .star:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 75%; left: 15%; animation-delay: 1.5s; }
+        .star:nth-child(3) { top: 25%; left: 85%; animation-delay: 3s; }
+        .star:nth-child(4) { top: 65%; left: 92%; animation-delay: 0.8s; }
+        .star:nth-child(5) { top: 45%; left: 3%; animation-delay: 2.2s; }
+        .star:nth-child(6) { top: 88%; left: 78%; animation-delay: 1s; }
+        .star:nth-child(7) { top: 12%; left: 45%; animation-delay: 2.8s; }
+        .star:nth-child(8) { top: 35%; left: 65%; animation-delay: 1.8s; }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+            50% { 
+                opacity: 0.3; 
+                transform: scale(0.8); 
+            }
+        }
+
+        /* 마우스 오버 효과 */
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+        }
+
+        .photo-frame:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 290px;
+            }
+            
+            .main-title {
+                font-size: 24px;
+                top: 10px;
+            }
+        }
+
+        /* 로딩 애니메이션 */
+        .cat-photo {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 2s infinite;
+        }
+
+        .cat-photo[src] {
+            animation: none;
+            background: none;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <h1 class="main-title">진짜 냐옹이 갤러리 🐱📸</h1>
+
+    <div class="container">
+        <!-- 첫 번째 고양이 -->
+        <div class="cat-container">
+            <div class="photo-frame">
+                <img src="https://placekitten.com/250/250" alt="귀여운 고양이" class="cat-photo">
+                <div class="heart"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <div class="cat-name">귀요미 🐾</div>
+            <div class="cat-description">세상에서 가장 귀여운 냐옹이</div>
+        </div>
+
+        <!-- 두 번째 고양이 -->
+        <div class="cat-container">
+            <div class="photo-frame">
+                <img src="https://placekitten.com/250/251" alt="멋진 고양이" class="cat-photo">
+                <div class="heart"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <div class="cat-name">멋쟁이 😺</div>
+            <div class="cat-description">카리스마 넘치는 냐옹이</div>
+        </div>
+
+        <!-- 세 번째 고양이 -->
+        <div class="cat-container">
+            <div class="photo-frame">
+                <img src="https://placekitten.com/250/252" alt="사랑스러운 고양이" class="cat-photo">
+                <div class="heart"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <div class="cat-name">사랑이 💕</div>
+            <div class="cat-description">마음을 녹이는 냐옹이</div>
+        </div>
+    </div>
+
+    <script>
+        // 이미지 로딩 완료 시 애니메이션 추가
+        document.querySelectorAll('.cat-photo').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '0';
+                this.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    this.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    this.style.opacity = '1';
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // 마우스 움직임에 따른 3D 효과
+        document.querySelectorAll('.photo-frame').forEach(frame => {
+            frame.addEventListener('mousemove', (e) => {
+                const rect = frame.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                frame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+
+            frame.addEventListener('mouseleave', () => {
+                frame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+        });
+    </script>
+</body>
+</html> 
